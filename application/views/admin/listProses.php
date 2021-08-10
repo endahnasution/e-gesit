@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        Hi, admin berikut daftar list Dokumen
+        Daftar Detail Tracking
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,8 +18,14 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
 
-                    <h3 class="box-title">Daftar Tracking </h3>
-
+                    <h3 class="box-title">Daftar Detail Tracking </h3>
+                    <div class="pull-right">
+                        <ul>
+                            <a class="btn btn-primary" href="<?php echo base_url('admin/proses/tambahProses') ?>">
+                                <i class="fa fa-plus"></i>&nbsp; Tambah Data
+                            </a> </span>
+                        </ul>
+                    </div>
 
                     <section class="content">
                         <div class="row">
@@ -31,25 +37,30 @@
                                         <table id="tbl" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th class="dt-center">Kode Tracking</th>
                                                     <th class="dt-center">Nama Sarana</th>
-                                                    <th class="dt-center">Telusuri</th>
-
+                                                    <th class="dt-center">Tanggal Input</th>
+                                                    <th class="dt-center">Status Pesan</th>
+                                                    <th class="dt-center">Detail Pesan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if (isset($daftar)) {
-                                                    foreach ($daftar as $row) {
+                                                if (isset($proses)) {
+                                                    foreach ($proses as $row) {
 
                                                         echo "<tr>";
-                                                        echo "<td class='dt-left'>" . $row->noTracking . "</td>";
                                                         echo "<td class='dt-left'>" . $row->namaSarana . "</td>";
-
+                                                        echo "<td class='dt-left'>" . $row->tanggal . "</td>";
+                                                        echo "<td class='dt-left'>" . $row->statusPesan . "</td>";
+                                                        echo "<td class='dt-left'>" . $row->detailPesan . "</td>";
                                                         echo "<td>";
                                                 ?>
 
-                                                        <a href="#" data-tooltip="tooltip" title="Hapus" class="btn btn-danger btn-sm" id="hapusSr" data-id="<?= $row->idTracking ?>" data-toggle="modal" data-target="#hapusSarana"><i class="fa fa-trash"></i></a>
+
+
+                                                        <a href="#" class="btn btn-success btn-sm" data-tooltip="tooltip" title="Edit" id="editSar" data-toggle="modal" data-target="#editTracking"><i class="fa fa-edit"></i></a>
+
+                                                        <a href="#" data-tooltip="tooltip" title="Hapus" class="btn btn-danger btn-sm" id="hapusSr" data-id="<?= $row->idProses ?>" data-toggle="modal" data-target="#hapusSarana"><i class="fa fa-trash"></i></a>
 
                                                         </td>
 

@@ -1,12 +1,19 @@
 <!-- JavaScript -->
-<script src="<?php echo base_url('assets');?>/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url('assets');?>/vendor/iCheck/icheck.min.js"></script>
-<script src="<?php echo base_url('assets');?>/vendor/AdminLTE-2.4.3/js/adminlte.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendor/iCheck/icheck.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendor/AdminLTE-2.4.3/js/adminlte.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.category').select2();
+	});
+</script>
+
 <script>
 	window.onload = function() {
 		<?php if ($this->session->flashdata('msg') != '') {
-    echo "effect_msg();";
-}?>
+			echo "effect_msg();";
+		} ?>
 	}
 
 	function effect_msg_form() {

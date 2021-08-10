@@ -1,10 +1,10 @@
 <section class="content-header">
     <h1>
-        Hi, admin berikut daftar list Dokumen
+        Daftar Tracking
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Daftar Detail Tracking</a></li>
+        <li><a href="#">Daftar Tracking</a></li>
     </ol>
 </section>
 <!-- Main content -->
@@ -19,7 +19,13 @@
                 <div class="box-header with-border">
 
                     <h3 class="box-title">Daftar Tracking </h3>
-
+                    <div class="pull-right">
+                        <ul>
+                            <a class="btn btn-primary" href="<?php echo base_url('admin/tracking/tambahTracking') ?>">
+                                <i class="fa fa-plus"></i>&nbsp; Tambah Data
+                            </a> </span>
+                        </ul>
+                    </div>
 
                     <section class="content">
                         <div class="row">
@@ -31,23 +37,27 @@
                                         <table id="tbl" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th class="dt-center">Kode Tracking</th>
+                                                    <th class="dt-center">Nomor Tracking</th>
                                                     <th class="dt-center">Nama Sarana</th>
-                                                    <th class="dt-center">Telusuri</th>
-
+                                                    <th class="dt-center">Nama Petugas</th>
+                                                    <th class="dt-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if (isset($daftar)) {
-                                                    foreach ($daftar as $row) {
+                                                if (isset($tracking)) {
+                                                    foreach ($tracking as $row) {
 
                                                         echo "<tr>";
                                                         echo "<td class='dt-left'>" . $row->noTracking . "</td>";
                                                         echo "<td class='dt-left'>" . $row->namaSarana . "</td>";
-
+                                                        echo "<td class='dt-left'>" . $row->namaPembuat . "</td>";
                                                         echo "<td>";
                                                 ?>
+
+
+
+                                                        <a href="#" class="btn btn-success btn-sm" data-tooltip="tooltip" title="Edit" id="editSar" data-id="<?= $row->idTracking ?>" data-nomor="<?= $row->noTracking ?>" data-nama="<?= $row->namaSarana ?>" data-petugas="<?= $row->namaPembuat ?>" data-toggle="modal" data-target="#editTracking"><i class="fa fa-edit"></i></a>
 
                                                         <a href="#" data-tooltip="tooltip" title="Hapus" class="btn btn-danger btn-sm" id="hapusSr" data-id="<?= $row->idTracking ?>" data-toggle="modal" data-target="#hapusSarana"><i class="fa fa-trash"></i></a>
 

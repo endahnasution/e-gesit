@@ -27,11 +27,13 @@ class Home extends MY_Controller
         if ($this->session->userdata('id_role') != "1") {
             redirect('', 'refresh');
         }
+        $this->load->model('Tracking_model');
     }
 
     public function index()
     {
         $data = konfigurasi('Dashboard');
+        $data['daftar'] = $this->Tracking_model->getDaftar();
         $this->template->load('layouts/template', 'admin/dashboard', $data);
     }
 }
