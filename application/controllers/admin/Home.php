@@ -36,4 +36,12 @@ class Home extends MY_Controller
         $data['daftar'] = $this->Tracking_model->getDaftar();
         $this->template->load('layouts/template', 'admin/dashboard', $data);
     }
+
+    public function history()
+    {
+        $id = $this->uri->segment(4);
+        $data = konfigurasi('Dashboard');
+        $data['history'] = $this->Tracking_model->getHistory($id);
+        $this->template->load('layouts/template', 'admin/history', $data);
+    }
 }

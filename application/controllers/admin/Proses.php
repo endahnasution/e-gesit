@@ -24,7 +24,7 @@ class Proses extends MY_Controller
     {
         $data = konfigurasi('Form Tambah Tracking');
         $data['tracking'] = $this->Proses_model->getTracking();
-        $this->template->load('layouts/template', 'admin/formTracking', $data);
+        $this->template->load('layouts/template', 'admin/formProses', $data);
     }
 
     public function simpanProses()

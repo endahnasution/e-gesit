@@ -43,13 +43,13 @@
                                                     foreach ($daftar as $row) {
 
                                                         echo "<tr>";
-                                                        echo "<td class='dt-left'>" . $row->noTracking . "</td>";
-                                                        echo "<td class='dt-left'>" . $row->namaSarana . "</td>";
+                                                        echo "<td class='dt-center'>" . $row->noTracking . "</td>";
+                                                        echo "<td class='dt-center'>" . $row->namaSarana . "</td>";
 
-                                                        echo "<td>";
+                                                        echo "<td class='dt-center'>";
                                                 ?>
 
-                                                        <a href="#" data-tooltip="tooltip" title="Hapus" class="btn btn-danger btn-sm" id="hapusSr" data-id="<?= $row->idTracking ?>" data-toggle="modal" data-target="#hapusSarana"><i class="fa fa-trash"></i></a>
+                                                        <a href="<?php echo base_url('admin/home/history/' . $row->idTracking) ?>" data-tooltip="tooltip" title="cari" class="btn btn-primary" id="hapusSr" data-id="<?= $row->idTracking ?>"><i class="fa fa-search"> Cari</i></a>
 
                                                         </td>
 
@@ -93,38 +93,3 @@
 
     </div>
     <!-- /.row -->
-
-
-    <!-- Hapus Sarana -->
-    <div id="hapusSarana" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><i class="icon fa fa-ban"></i> ALert !</h4>
-                </div>
-                <div class="modal-body" id="hapusData">
-                    <form role="form" method="post" action="<?= base_url('admin/tracking/hapusTracking') ?>">
-                        <div class="box-body">
-                            <div class="form-group" style="text-align:center">Anda yakin akan menghapus Data Tracking ini ?</label>
-                                <input type="hidden" id="idHapus" name="idHapus">
-
-                            </div>
-                        </div><!-- /.box-body -->
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
-                            <button type="submit" class="btn btn-danger" name="delete"><i class="fa fa-check"></i> Hapus</button>
-                        </div>
-                    </form>
-                    <script src="<?php echo base_url(); ?>assets/js/jquery-1.10.0.min.js" type="text/javascript"></script>
-                    <script type="text/javascript">
-                        $(document).on("click", "#hapusSr", function() {
-                            var id = $(this).data('id');
-                            $("#hapusData #idHapus").val(id);
-                        });
-                    </script>
-                </div>
-
-            </div>
-        </div>
-    </div>

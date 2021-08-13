@@ -13,7 +13,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <form role="form" action="<?php echo base_url('admin/tracking/simpanTracking') ?>" method="post">
+            <form role="form" action="<?php echo base_url('admin/proses/simpanProses') ?>" method="post">
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Form Pembuatan Input Proses Tracking</h3>
@@ -22,51 +22,57 @@
 
                     <div class="col-md-12">
 
-                        <!-- NIB -->
-                        <div class="form-group row">
-                            <label for="noSurat" class="col-sm-4 col-form-label">Nomor Tracking<span class="wajib"> *</span></label>
-                            <div class="col-sm-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nomor Tracking" name="noTracking" id="noTracking" required>
-                                </div>
-                            </div>
-                        </div>
-
-
                         <!-- nama sarana -->
                         <div class="form-group row">
-                            <label for="anggaran" class="col-sm-4 col-form-label">Pilih Nama sarana<span class="wajib"> *</span></label>
+                            <label for="anggaran" class="col-sm-4 col-form-label">Pilih Kode Tracking<span class="wajib"> *</span></label>
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                                    <select class="form-control category" name="idSarana" id="idSarana" required>
+                                    <select class="form-control category" name="idTracking" id="idTracking" required>
                                         <?php
-                                        foreach ($sarana as $row) {
-                                            echo "<option value=" . $row->idSarana . ">" . $row->namaSarana . "</option>";
+                                        foreach ($tracking as $row) {
+                                            echo "<option value=" . $row->idTracking . ">" . $row->noTracking . "</option>";
                                         }
                                         ?>
-                                        <option value="" disabled selected>- Nama Sarana -</option>
+                                        <option value="" disabled selected>- Kode Tracking -</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
 
-
-
-                        <!-- Nama Petugas -->
+                        <!-- Nomor Tracking -->
                         <div class="form-group row">
-                            <label for="noSurat" class="col-sm-4 col-form-label">Nama Petugas<span class="wajib"> *</span></label>
+                            <label for="noSurat" class="col-sm-4 col-form-label">Tanggal <span class="wajib"> *</span></label>
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nama Petugas" name="pembuat" id="pembuat" required>
+                                    <input type="date" class="form-control" placeholder="Tanggal" name="tanggal" id="tanggal" required>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- NIB -->
+                        <div class="form-group row">
+                            <label for="noSurat" class="col-sm-4 col-form-label">Status Dokumen<span class="wajib"> *</span></label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                    <input type="text" class="form-control" placeholder="Status Dokumen" name="status" id="status" required>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- NIB -->
+                        <div class="form-group row">
+                            <label for="noSurat" class="col-sm-4 col-form-label">Detail Pesan<span class="wajib"> *</span></label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                    <input type="text" class="form-control" placeholder="Detail Pesan" name="pesan" id="pesan" required>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
